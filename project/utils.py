@@ -6,6 +6,7 @@ from config import (
     HASHTAG_PATTERN,
     CATEGORIES,
     DEFAULT_CATEGORY,
+    IRRELEVANT_PHRASES
 )
 
 STEP_RE = re.compile(STEP_LINE_PATTERN, re.IGNORECASE)
@@ -45,17 +46,21 @@ def extract_steps(caption:str , max_steps : int = MAX_STEPS_PER_REEL ) -> list[s
         m = STEP_RE.match(line)
         if m:
             steps.append(m.group(1))
-        elif "→" in line or "->" in line:
+        elif ("→" in line or "->" in line) and not is_irrelevant(line):
             steps.extend(re.split(r"→|->", line)) 
 
     steps = [clean_label(s) for s in steps]
     steps = [s for s in steps if len(s) > 2]
 
     if not steps:
-        lines = [clean_label(line) for line in caption.splitlines()]
+        lines = [clean_label(line) for line in caption.splitlines() if not is_irrelevant(line)]
         steps = [line for line in lines if len(line) > 3][:3]
 
     return steps[:max_steps]
+
+def is_irrelevant(line: str) -> bool: #return true as soon as one irrelevant phrases appears inside a line
+    line = line.lower()
+    return any(phrase in line for phrase in IRRELEVANT_PHRASES)
 
 def safe_int(value, default: int = 0) -> int:
     try:

@@ -52,6 +52,11 @@ CATEGORIES = {
     ],
 }
 
+IRRELEVANT_PHRASES = [
+    "follow", "comment", "save this", "share", "link in bio",
+    "dm", "tag a friend", "subscribe", "like and",
+]
+
 DEFAULT_CATEGORY = "General Learning"
 # If a post does not match any category keywords, it gets this
 
