@@ -10,7 +10,8 @@ from constants import (
     MAX_STEPS_PER_REEL,
     DEFAULT_ENCODING,
     CSV_ENCODING,
-    HASHTAG_PATTERN
+    HASHTAG_PATTERN,
+    IRRELEVANT_PHRASES
 )
 
 # Whenever any program need to import constants and path.it can use this central config file
@@ -28,5 +29,6 @@ __all__ = [
     "MAX_STEPS_PER_REEL",
     "DEFAULT_ENCODING",
     "CSV_ENCODING",
-    "HASHTAG_PATTERN"
+    "HASHTAG_PATTERN",
+    "IRRELEVANT_PHRASES"
 ]
