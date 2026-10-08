@@ -1,7 +1,12 @@
 import re
 import pandas as pd 
-from config import CATEGORIES, DEFAULT_CATEGORY
-from utils import extract_hashtags
+try:
+    from .config import CATEGORIES, DEFAULT_CATEGORY
+    from .utils import extract_hashtags
+except ImportError:
+    from config import CATEGORIES, DEFAULT_CATEGORY
+    from utils import extract_hashtags
+
 
 def categorize(caption : str , hashtags : str)-> str:
     text = f"{caption} {hashtags}".lower()

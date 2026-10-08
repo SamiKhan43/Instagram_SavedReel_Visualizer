@@ -1,7 +1,11 @@
 import pandas as pd
 
-from config import Paths
-from utils import clean_label, extract_steps, safe_int
+try:
+    from .config import Paths
+    from .utils import clean_label, extract_steps, safe_int
+except ImportError:
+    from config import Paths
+    from utils import clean_label, extract_steps, safe_int
 
 def build_mermaid(df: pd.DataFrame) -> str:
     lines = [

@@ -3,7 +3,10 @@ import os
 import sys
 from apify_client import ApifyClient
 from dotenv import load_dotenv
-from config import Paths, ACTOR_ID, BATCH_SIZE, DEFAULT_ENCODING
+try:
+    from .config import Paths, ACTOR_ID, BATCH_SIZE, DEFAULT_ENCODING
+except ImportError:
+    from config import Paths, ACTOR_ID, BATCH_SIZE, DEFAULT_ENCODING
 
 
 class InstagramScraper:

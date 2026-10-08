@@ -1,17 +1,30 @@
 import re
 import json
 from pathlib import Path
-from config import (
-    CLEAN_LABEL_MAX_LEN,
-    STEP_LINE_PATTERN,
-    MAX_STEPS_PER_REEL,
-    HASHTAG_PATTERN,
-    CATEGORIES,
-    DEFAULT_CATEGORY,
-    IRRELEVANT_PHRASES,
-    DEFAULT_ENCODING,
-    INSTAGRAM_URL_PATTERN
-)
+try:
+    from .config import (
+        CLEAN_LABEL_MAX_LEN,
+        STEP_LINE_PATTERN,
+        MAX_STEPS_PER_REEL,
+        HASHTAG_PATTERN,
+        CATEGORIES,
+        DEFAULT_CATEGORY,
+        IRRELEVANT_PHRASES,
+        DEFAULT_ENCODING,
+        INSTAGRAM_URL_PATTERN
+    )
+except ImportError:
+    from config import (
+        CLEAN_LABEL_MAX_LEN,
+        STEP_LINE_PATTERN,
+        MAX_STEPS_PER_REEL,
+        HASHTAG_PATTERN,
+        CATEGORIES,
+        DEFAULT_CATEGORY,
+        IRRELEVANT_PHRASES,
+        DEFAULT_ENCODING,
+        INSTAGRAM_URL_PATTERN
+    )
 
 STEP_RE = re.compile(STEP_LINE_PATTERN, re.IGNORECASE)
 

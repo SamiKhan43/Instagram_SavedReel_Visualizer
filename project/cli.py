@@ -1,9 +1,17 @@
 import sys
-from config import Paths, CSV_ENCODING
-from processor import to_dataframe
-from scraper import InstagramScraper
-from visualization import write_markdown
-from utils import extract_reel_urls  
+try:
+    from .config import Paths, CSV_ENCODING
+    from .processor import to_dataframe
+    from .scraper import InstagramScraper
+    from .visualization import write_markdown
+    from .utils import extract_reel_urls
+except ImportError:
+    from config import Paths, CSV_ENCODING
+    from processor import to_dataframe
+    from scraper import InstagramScraper
+    from visualization import write_markdown
+    from utils import extract_reel_urls
+
 
 
 def run(args) -> None:

@@ -1,7 +1,7 @@
 from pathlib import Path
  
 class Paths:
-    ROOT = Path(__file__).parent #__file__ is a special python variable that contain the path of the current python file  
+    ROOT = Path(__file__).resolve().parent.parent #__file__ is a special python variable that contain the path of the current python file  
 
     #data directories
     DATA_DIR = ROOT / "data" #means add data dir in our current dir
