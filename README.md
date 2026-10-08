@@ -78,14 +78,15 @@ Outputs appear in `project/data/outputs/`. See [Setup](docs/setup.md) for the fu
 
 ## Documentation
 
-| Guide | What's inside |
-|---|---|
-| [Setup](docs/setup.md) | Requirements, virtual environment, Apify token, exporting your Instagram data |
-| [Usage and outputs](docs/usage.md) | Commands, flags, CSV columns, viewing the Mermaid roadmap |
-| [How it works](docs/how-it-works.md) | Each module and what it does, and how to customize topics |
-| [LLM roadmap prompt](docs/llm-roadmap.md) | A ready-to-paste prompt for a smarter, interactive roadmap |
-| [Troubleshooting and limitations](docs/troubleshooting.md) | Common errors and what the tool can't do |
-| [Privacy and responsible use](docs/privacy.md) | Keeping your data and token safe |
+| Guide                                                      | What's inside                                                                     |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Setup](docs/setup.md)                                     | Requirements, virtual environment, Apify token, and exporting your Instagram data |
+| [Usage and outputs](docs/usage.md)                         | Commands, flags, CSV columns, and viewing the Mermaid roadmap                     |
+| [How it works](docs/how-it-works.md)                       | Each module, what it does, and how to customize topics                            |
+| [LLM roadmap prompt](docs/llm-roadmap.md)                  | A ready-to-paste prompt for a smarter, interactive roadmap                        |
+| [Troubleshooting and limitations](docs/troubleshooting.md) | Common errors and what the tool can't do                                          |
+| [Privacy and responsible use](docs/privacy.md)             | Keeping your data and API token safe                                              |
+| [Architecture](docs/architecture.md)                       | Project structure and how the components work together                            |
 
 ## Privacy
 
