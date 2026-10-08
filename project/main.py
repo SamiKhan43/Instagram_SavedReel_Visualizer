@@ -1,4 +1,7 @@
-from .cli import build_parser, run
+try:
+    from .cli import build_parser, run
+except ImportError:
+    from cli import build_parser, run
 
 
 def main():
