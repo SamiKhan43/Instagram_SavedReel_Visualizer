@@ -1,7 +1,4 @@
 import sys
-
-import pandas as pd
-
 from config import Paths, CSV_ENCODING
 from processor import to_dataframe
 from scraper import InstagramScraper
@@ -32,9 +29,8 @@ def run(args) -> None:
     print("2/4 Enriching via Apify ...")
 
     if args.skip_scrape:
-        scraper = InstagramScraper()
         try:
-            items = scraper.load_cached()
+            items = InstagramScraper.load_cached()
         except FileNotFoundError:
             sys.exit(
                 "No cached results found. "
@@ -43,7 +39,8 @@ def run(args) -> None:
     else:
         scraper = InstagramScraper()
         items = scraper.scrape_urls(urls)
-        scraper.save_cache(items)
+        if items:
+            scraper.save_cache(items)
 
     print(f"    Got {len(items)} results")
 
