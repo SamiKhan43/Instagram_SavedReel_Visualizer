@@ -1,8 +1,31 @@
-# Privacy and responsible use
+# Limitations, Privacy & Responsible Use
 
-[Back to README](../README.md)
+## Limitations
 
-- `.gitignore` blocks `.env` and everything in `project/data/`, so your token, your saved list and the outputs are not committed. Run `git status` before every push to confirm. The data folder is inside `project/`, so the ignore rule must point there, as the provided `.gitignore` does.
-- If you ever commit a token by mistake, revoke it in the Apify console and create a new one. Deleting the file in a later commit does not remove it from Git history.
-- Your saved posts reveal personal interests. Keep any repo containing the outputs private, or only publish a small sample.
-- Only collect public data, follow Instagram's and Apify's terms of service, and respect creators' rights. This project is for organizing your own learning.
+- Only public posts can be scraped.
+- Private accounts and removed posts may return no data.
+- Captions that say "comment X for the link" usually do not contain the actual resource link.
+- Topic grouping and step detection are keyword-based, so some Reels may be categorized incorrectly.
+- Captions without lists may produce weak or empty roadmap steps.
+- Apify pricing and scraper output fields can change.
+
+For scraper changes, check the Apify Instagram Scraper documentation.
+
+## Privacy
+
+`.gitignore` should keep `.env` and your `data/` directory out of Git.
+
+Before pushing:
+
+```bash
+git status
+```
+
+Your saved posts can reveal personal interests. Keep repositories containing your real exports private, or publish only a small sample.
+
+## Responsible use
+
+- Collect only public data.
+- Follow Instagram's and Apify's terms of service.
+- Respect creators' rights.
+- Use the project primarily for personal learning organization.
