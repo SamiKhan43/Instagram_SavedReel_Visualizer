@@ -18,7 +18,7 @@ STEP_LINE_PATTERN = (
     r"[-•●▪️✅👉➡️→*])\s*(.+)$"
 )
 
-HASHTAG_PATTERN = r"#(\w+)"
+HASHTAG_PATTERN = r"(?<![\w/&])#([^\W\d]\w*)"
 
 CATEGORIES = {
     "Python": [
