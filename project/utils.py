@@ -1,4 +1,6 @@
 import re
+import json
+from pathlib import Path
 from config import (
     CLEAN_LABEL_MAX_LEN,
     STEP_LINE_PATTERN,
@@ -6,7 +8,9 @@ from config import (
     HASHTAG_PATTERN,
     CATEGORIES,
     DEFAULT_CATEGORY,
-    IRRELEVANT_PHRASES
+    IRRELEVANT_PHRASES,
+    DEFAULT_ENCODING,
+    INSTAGRAM_URL_PATTERN
 )
 
 STEP_RE = re.compile(STEP_LINE_PATTERN, re.IGNORECASE)
@@ -68,4 +72,23 @@ def safe_int(value, default: int = 0) -> int:
     except (ValueError, TypeError , OverflowError):
         return default
 
+def extract_reel_urls(path: Path) -> list[str]:
+    with open(path, "r", encoding=DEFAULT_ENCODING) as f:
+        data = json.load(f)
 
+    found = {}
+    pattern = re.compile(INSTAGRAM_URL_PATTERN)
+
+    def walk(node):
+        if isinstance(node, dict):
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+        elif isinstance(node, str):
+            for match in pattern.findall(node):
+                found[match.rstrip("/") + "/"] = None
+
+    walk(data)
+    return list(found.keys())
