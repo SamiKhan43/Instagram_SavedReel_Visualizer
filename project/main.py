@@ -1,4 +1,4 @@
-from cli import build_parser, run
+from .cli import build_parser, run
 
 
 def main():
