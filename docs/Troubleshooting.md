@@ -6,14 +6,16 @@
 
 | Problem | Fix |
 |---|---|
-| `externally-managed-environment` when running pip | Use a virtual environment (see [Setup](setup.md)). Don't use `--break-system-packages`. |
-| `Missing APIFY_API_TOKEN` | `.env` is missing, misnamed (it must be exactly `.env`), or still has the placeholder. |
-| `ModuleNotFoundError: dotenv` or `apify_client` | The virtual environment is not active, or you skipped `pip install -r requirements.txt`. |
-| `Put your Instagram export at ...` | `saved_posts.json` is not in `project/data/`. |
+| `Cannot connect to the Docker daemon` | Docker is not running. Start Docker Desktop, or on Linux run `sudo systemctl start docker`. |
+| `Missing APIFY_API_TOKEN` | `.env` is missing, misnamed (it must be exactly `.env`), still has the placeholder, or you ran the command from a folder other than the repo root. |
+| `ModuleNotFoundError: dotenv` or `apify_client` | The image is out of date. Run `docker compose build` again. |
+| `Put your Instagram export at ...` | `saved_posts.json` is not in the `data/` folder in the repo root (Docker mounts it as `/app/data`). |
 | `'Run' object is not subscriptable` | You have an old `scraper.py` and a newer `apify-client`. The current `_scrape_batch` handles both. |
 | `Apify returned no data` | Check your Apify credits and that the reels are public. |
 | Log says `Crawled 57/58 pages` | Not an error. If the status is `SUCCEEDED` and failed requests are 0, the run worked. |
 | Fewer rows in the CSV than URLs found | Private, deleted or restricted posts are skipped. This is normal. |
+| Code changes have no effect | The image still holds the old code. Run `docker compose build`. |
+| Files in `data/outputs/` are owned by root (Linux) | Run `sudo chown -R $USER data`. |
 | `UnicodeEncodeError` in the terminal | Remove emoji from `print` messages (some Windows terminals can't show them). |
 | Roadmap only shows text | Your Markdown viewer does not support Mermaid. See [Usage](usage.md). |
 
