@@ -12,7 +12,7 @@ venv/
 env/
 
 # Project outputs / generated data
-data/outputs/
+/data/
 
 # Local API/cache data
 data/apify_raw_results.json
