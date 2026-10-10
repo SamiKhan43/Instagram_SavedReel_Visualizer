@@ -99,16 +99,16 @@ docker compose run --rm reels --limit 5             # small test run
 Outputs appear in `data/outputs/`. See [Setup](docs/setup.md) for the full walkthrough.
  
 ## Documentation
- 
+
 | Guide | What's inside |
 |---|---|
-| [Setup](docs/setup.md) | Requirements, Docker image, Apify token, exporting your Instagram data |
+| [Setup](docs/setup.md) | Requirements, virtual environment, Apify token, exporting your Instagram data |
 | [Usage and outputs](docs/usage.md) | Commands, flags, CSV columns, viewing the Mermaid roadmap |
 | [How it works](docs/how-it-works.md) | Each module and what it does, and how to customize topics |
 | [LLM roadmap prompt](docs/llm-roadmap.md) | A ready-to-paste prompt for a smarter, interactive roadmap |
 | [Troubleshooting and limitations](docs/troubleshooting.md) | Common errors and what the tool can't do |
 | [Privacy and responsible use](docs/privacy.md) | Keeping your data and token safe |
- 
+
 ## Privacy
  
 `.env` and `project/data/` are git-ignored. Your saved posts reveal personal interests, so keep any repo with outputs private. Details in [Privacy and responsible use](docs/privacy.md).
@@ -116,4 +116,5 @@ Outputs appear in `data/outputs/`. See [Setup](docs/setup.md) for the full walkt
 
 ## License
 
-ReelRoadmap is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+ Saved Reels Visualizer  is licensed under the MIT License.
