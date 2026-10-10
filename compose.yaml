@@ -1,0 +1,9 @@
+
+services:
+  reels:
+    build: .
+    environment:
+      APIFY_API_TOKEN: ${APIFY_API_TOKEN:-}
+    volumes:
+      - ./data:/app/data
+ 
